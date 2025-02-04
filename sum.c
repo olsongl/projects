@@ -19,6 +19,7 @@ long odd = 0;
 long min = INT_MAX;
 long max = INT_MIN;
 bool done = false;
+int thread_count = 0;
 
 // function prototypes
 void update(long number);
@@ -47,8 +48,13 @@ void update(long number)
 int main(int argc, char* argv[])
 {
     // check and parse command line options
-    if (argc != 2) {
-        printf("Usage: sum <infile>\n");
+    if (argc != 3) {
+        printf("Usage: sum <infile> <worker threads>\n");
+        exit(EXIT_FAILURE);
+    }
+    thread_count = strtol(argv[2], NULL, 10);
+    if (thread_count < 1) {
+        printf("At least 1 worker thread needed");
         exit(EXIT_FAILURE);
     }
     char *fn = argv[1];
