@@ -206,3 +206,5 @@ int main(int argc, char* argv[]) {
     pthread_cond_destroy(&taskQueue.cond);
     return EXIT_SUCCESS;
 }
+
+// works alright when I test times
