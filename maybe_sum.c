@@ -139,9 +139,9 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
     char* fn = argv[1];
-    int numWorkers = atoi(argv[2]);
-    if (numWorkers <= 0) {
-        printf("ERROR: Number of workers must be greater than 0\n");
+    int numWorkers = strtol(argv[2], NULL, 10);
+    if (numWorkers <= 1) {
+        printf("ERROR: Number of workers must be greater than 1\n");
         exit(EXIT_FAILURE);
     }
 
